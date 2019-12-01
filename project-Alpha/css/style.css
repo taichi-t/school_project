@@ -1,0 +1,560 @@
+
+/* There is a direction how to add lines to css on top of style.css file,
+so please check it before you start coding !
+For the margin and padding please refer to the image that Taichi will send. */
+
+/* Directions
+1. Font-size of h1, h2, h3, and p is fixed.
+  Use h2 tag for your page title.
+  If you need another element in your page, please define in your section of CSS.
+2. Margin and padding
+  Margin and padding are fixed so defined in the “utility” section line 85 to 91.
+  Please make the section which include page title with class=“section-header”
+  Please make the section which include body contents of each section with class=“section-body”
+  *Check the image that Taichi had sent you if you don’t understand!
+*/
+
+/* FONTS
+font-family: 'Shadows Into Light', cursive;
+
+copy this line to html
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+*/
+
+/* FONT-SIZE
+
+Basic font size for html is 10px, so use "XXrem" to change font size of each sections.
+Ex) 36px = 10px * 3.6 → 3.6rem 
+
+*/
+
+/* COLOR
+#fffde8  >> Background color
+#d4e9cc  >> Main color
+#c9bc9c  >> sub color
+#006934  >> Key color
+#545251  >> font color
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* --------------------- /reset css --------------------- */
+
+
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} */
+/* HTML5 display-role reset for older browsers */
+/* article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} */
+/* --------------------- /reset css --------------------- */
+
+html{
+    font-size: 62.5%;/*16px ×　62.5% = 10px expample: 2.4rem = 24px */
+}
+
+#container{
+    width:100%;
+}
+
+body{
+    background-color: #fffde8;
+    font-family:'Shadows Into Light', cursive;
+    font-size: 2.4rem;
+}
+
+
+
+h2{
+    font-size: 6rem;
+    color: #006934;
+}
+
+h2{
+    font-size: 6rem;
+    color: #006934;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{  
+    line-height: 3rem;
+    font-size: 2.4rem;
+    letter-spacing: 0.1rem;
+}
+
+/* --------------------- utility --------------------- */
+
+.text-center{
+    text-align: center;
+}
+
+.boxwrap{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.btn-submit{
+	-webkit-appearance: none;
+    appearance: none;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family:'Shadows Into Light', cursive;
+    font-weight: bold;
+	width: 115px;
+	line-height: 2em;
+	background-color: #c9bc9c;
+    color: #545251;
+    border-radius: 1px;
+}
+
+.btn-submit:hover{
+    opacity: 0.8;
+}
+
+.section-header{
+    padding-bottom: 60px;
+}
+
+.section-body{
+    padding-bottom: 80px;
+    }
+.header-margine{
+    margin-top: 158px;
+    position: relative;
+}
+/* --------------------- /utility --------------------- */
+
+
+/* ----------------------------------------*
+*     header- ayaka                        *
+*------------------------------------------*/
+header {
+    width: 100%;
+    position: fixed;
+    background-color: #c9bc9c;
+    top: 0;
+    left: 0;
+    z-index: 1;
+ }
+ nav{
+    max-width: 600px;
+    margin: 0 auto;
+ }
+header img{
+    display: block;
+    max-width: 60px;
+    margin: 20px auto;
+}
+header nav ul {
+    list-style: none;
+}
+header nav ul li{
+    float: left;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+header nav ul li a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #545251;
+    text-decoration: none;
+}
+header nav ul li a:hover{
+    opacity: 0.8;
+}
+nav a.icon{
+    display: none;
+    color: #545251;
+    float: right;
+}
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 1100px) {
+    .topnav li:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+      margin-right: 20px;
+    }
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 1100px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive li {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+
+
+
+/* ----------------------------------------*
+*    / header- ayaka                       *
+*------------------------------------------*/
+
+
+/* ----------------------------------------*
+*    mainpage- mai and ruri         　　　  *
+*------------------------------------------*/
+
+
+.mainimage p {
+    position: absolute;
+    color: #fff;
+    font-weight: bold;
+    font-size: 3.5em;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-shadow: 0 2px 8px #505050;
+}
+
+.mainimage{
+    width:100%;
+    background: center center fixed no-repeat;
+    background-size:cover;
+    height: 100%;
+
+}
+
+.logo{
+    margin: 0 auto;
+    display: block;
+    width: 250px;
+    padding-bottom: 50px;
+}
+
+
+
+/* ----------------------------------------*
+*    /mainpage- mai and ruri         　　　  *
+*------------------------------------------*/
+
+/* ----------------------------------------*
+*    about page- vlad                      *
+*------------------------------------------*/
+
+/* ----------------------------------------*
+*    /about page- vlad                      *
+*------------------------------------------*/
+
+/* ----------------------------------------*
+*    contact+location- taichi              *
+*------------------------------------------*/
+
+/* ----------------------------------------*
+*    c/ontact+location- taichi             *
+*------------------------------------------*/
+
+
+
+
+/* --------------------- heroimg address hours --------------------- */
+
+.maparea{
+    padding-top: 80px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.googlemap{
+    float: left;
+}
+
+
+
+.address{
+    padding-bottom: 60px;
+}
+
+
+.address>h2{
+    padding-bottom: 60px;
+}
+
+.hours>h2{
+    padding-bottom: 60px;
+}
+.hours::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.google-pin{
+    display: inline-block;
+    padding: 24px 80px;
+    font-weight: bold;
+}
+
+.google-pin>a>i{
+    padding-bottom: 24px;
+}
+
+
+
+/* --------------------- /heroimg address hours --------------------- */
+
+/* --------------------- contact area --------------------- */
+.contact-text{
+    padding-bottom: 60px;
+}
+/* --------------------- /contact area --------------------- */
+
+/* --------------------- join us area --------------------- */
+
+.joinus-text{
+    padding-bottom: 60px;
+}
+
+.form{
+    display: block;
+    max-width: 784px;
+    margin: 0 auto;
+}
+
+.form-item{
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.form-title{
+    font-weight: bold;
+    width: 196px;
+    margin: 0 30px 0 0;
+    padding: 5px 0;
+    text-align: right;
+}
+
+input{
+    border: none;
+    padding: 0;
+    letter-spacing: 0.1rem;
+    background-color: #dee4e0;
+}
+
+::placeholder{
+    padding-left: 10px;
+    font-size: 18px;
+    color: #c2c7c3;
+    font-style: italic;
+}
+
+.form-detail{
+    padding-right: 24px;
+}
+
+.form-detail:last-of-type{
+    padding: 0;
+}
+
+.form-detail-name{
+    width: 183px;
+    height: 30px;
+}
+
+.form-detail-email{
+    width: 390px;
+    height: 30px;
+}
+
+.form-detail-birthday,.form-detail-anniversary{
+    width: 114px;
+    height: 30px;
+}
+
+.btn{
+    margin-left: 57px;
+    padding-bottom: 60px;
+}
+
+.warn{
+    padding-left: 3px;
+    color: #c46a6a;
+}
+
+/* --------------------- /join us area --------------------- */
+
+
+/* ----------------------------------------*
+*    FAQ and comments-sayumi               *
+*------------------------------------------*/
+/* ----------------------------------------*
+*    /FAQ and comments-sayumi              *
+*------------------------------------------*/
+/* ----------------------------------------*
+*    collection- yuya                      *
+*------------------------------------------*/
+/* ----------------------------------------*
+*    /collection- yuya                     *
+*------------------------------------------*/
+/* ----------------------------------------*
+*    news,promotion,vacation- peri         *
+*------------------------------------------*/
+.pic{width:500px; height:350px;overflow:hidden;}
+.pic img{transform:scale(1,1);transition: all 1s ease-out;}
+.pic img:hover{transform:scale(1.2,1.2);}
+
+.row{
+  text-align: center;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+
+}
+
+.left, .right {
+  width: 30%;
+  
+}
+
+.middle {
+  width: 30%;
+  
+}
+/* ----------------------------------------*
+*    /news,promotion,vacation- peri        *
+*------------------------------------------*/
+
+/* ----------------------------------------*
+*     footer- ayaka                        *
+*------------------------------------------*/
+/*clear float from here*/
+.cf:before,
+.cf:after {
+	content: "";
+	display: table;
+}
+.cf:after {
+	clear: both;
+}
+/* For IE 6/7 only */
+.cf {
+	*zoom: 1;
+}
+/*clear float to here*/
+
+/* for small screen */
+/* @media screen and (max-width: 1000px) {
+    #footer_left {
+      float: none;
+      display: block;
+      margin: 0 auto;
+      width: 500px;
+  }
+  #footer_right{
+    float: none;
+    padding-bottom: 0px;
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+}
+} */
+
+/* footer style from here*/
+  
+footer{
+    width: 100%;
+    color: #545251;
+    background-color: #c9bc9c;
+}
+footer a{
+    color: #545251;
+   
+}
+#footer_inner{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    line-height: 1.5;
+}
+#footer_inner a:hover{
+    opacity: 0.8;
+}
+
+#footer_left{
+    width: 230px;
+    line-height: 1.5;
+    float: left;
+    font-weight: bold;
+}
+#footer_right{
+    width: 230px;
+    float: right;
+    padding-bottom: 0px;
+}
+#footer_right a:link{
+    border-bottom: 1px solid #545251;
+}
+#footer_right dl{
+    margin-bottom: 10px;
+}
+#footer_right dl{
+    font-weight: bold
+}
+
+#footer_right dl dd{
+    line-height: 1.5;
+    font-weight: normal;
+}
+/* footer style to here*/

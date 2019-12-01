@@ -1,0 +1,27 @@
+1.please copy the links below and paste it in your <head>section
+
+<!--  hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- JS -->
+<script src="js/headerbarger.js"></script>
+<script src="js/header.js"></script>
+
+
+
+2.Wrap your whole <body> section with the code below .
+
+<!-- code about header -->
+<section class="header-margine">
+    <script>header();</script>
+
+<!-- here is your section -->
+
+
+<!-- code about header -->
+</section>
+ <!-- footer link from JS -->
+ <script>footer()</script>
+
+
+
