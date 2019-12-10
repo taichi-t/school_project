@@ -1,0 +1,91 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 2000px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+.nav_container {
+  position: fixed;
+  width: 80%;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  height: auto;
+  background-image: url(../images/sunset.jpg);
+  background-size: cover;
+}
+
+.nav_list {
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+}
+
+.nav_list > li {
+  text-align: center;
+  list-style: none;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+}
+
+.container_main {
+  margin-top: 15%;
+  width: 100%;
+  height: auto;
+}
+
+.profile_list {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  border: solid 1px #000000;
+}
+
+.profile_item {
+  margin: 30px 0;
+  width: 200px;
+  height: 300px;
+  border: solid 1px #000000;
+  overflow: scroll;
+}
+
+.photo {
+  padding-top: 10px;
+  text-align: center;
+}
+.photo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.nav_item:hover {
+  background-color: aqua;
+}
