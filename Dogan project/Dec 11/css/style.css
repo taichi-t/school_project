@@ -1,0 +1,142 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.box_container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  border: solid 1px #000;
+}
+
+.position_absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.box_container_row1,
+.box_container_row2,
+.box_container_row3 {
+  display: flex;
+  justify-content: center;
+}
+
+.box_container_row1 > div,
+.box_container_row2 > div,
+.box_container_row3 > div {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+  border: solid 1px #fff;
+}
+
+.box_container_row3 > div {
+  margin-bottom: 0;
+}
+
+.box_container_row1 > div {
+  margin-top: 0;
+}
+
+.box_container_row1 > .box1,
+.box_container_row2 > .box1,
+.box_container_row3 > .box1 {
+  margin-left: 0px;
+}
+
+.box_container_row1 > .box3,
+.box_container_row2 > .box3,
+.box_container_row3 > .box3 {
+  margin-right: 0px;
+}
+
+.box_container_row1 > .box1 {
+  background-color: blue;
+}
+
+.box_container_row1 > .box1:hover {
+  transform: translateX(50px);
+  transition-duration: 1s;
+}
+.box_container_row1 > .box2 {
+  background-color: aqua;
+}
+.box_container_row1 > .box2:hover {
+  transform: scale(2);
+  transition-duration: 1s;
+}
+.box_container_row1 > .box3 {
+  background-color: aquamarine;
+}
+.box_container_row1 > .box3:hover {
+  transform: rotate(180deg);
+  transition-duration: 1s;
+}
+.box_container_row2 > .box1 {
+  background-color: red;
+}
+.box_container_row2 > .box1:hover {
+  transform: rotateZ(180deg);
+  transition-duration: 1s;
+}
+.box_container_row2 > .box2 {
+  background-color: rgb(255, 92, 119);
+}
+.box_container_row2 > .box2:hover {
+  transform: skewY(90deg);
+  transition-duration: 1s;
+}
+.box_container_row2 > .box3 {
+  background-color: pink;
+}
+.box_container_row2 > .box3:hover {
+  background-color: rgb(255, 64, 96);
+  transition-duration: 1s;
+}
+.box_container_row3 > .box1 {
+  background-color: yellow;
+}
+.box_container_row3 > .box1:hover {
+  animation-name: boxmoving;
+  animation-duration: 2s;
+}
+@keyframes boxmoving {
+  from {
+    transform: translateX(20px);
+  }
+  to {
+    transform: translateX(700px);
+  }
+}
+@-webkit-keyframes boxmoving {
+  from {
+    transform: translateX(20px);
+  }
+  to {
+    transform: translateX(700px);
+  }
+}
+.box_container_row3 > .box2 {
+  background-color: rgb(255, 255, 121);
+}
+.box_container_row3 > .box2:hover {
+  opacity: 0.3;
+  transition-duration: 0.5s;
+}
+.box_container_row3 > .box3 {
+  background-color: rgb(255, 255, 184);
+}
+.box_container_row3 > .box3:hover {
+  transform: rotateX(-90deg);
+  transition-duration: 1s;
+}
