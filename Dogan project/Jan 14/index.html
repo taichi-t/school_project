@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      #intro {
+        display: inline-block;
+      }
+
+      th {
+        width: 200px;
+        border-bottom: 1px solid #ffffff;
+        border-right: 1px solid #ffffff;
+      }
+
+      .th-hover {
+        background-color: #fff;
+      }
+
+      td {
+        border-bottom: 1px solid #ffffff;
+        border-right: 1px solid #ffffff;
+      }
+
+      .td-hover {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="intro"></div>
+    <script>
+      var someData = [
+        {
+          name: "Pizza",
+          price: 10,
+          popularity: "high"
+        },
+        {
+          name: "Humbarger",
+          price: 15,
+          popularity: "high"
+        },
+        {
+          name: "Shushi",
+          price: 20,
+          popularity: "high"
+        }
+      ];
+
+      function fromDatatoTable(data) {
+        var tableNode = document.createElement("table");
+        tableNode.setAttribute("id", "myTable");
+        tableNode.setAttribute("style", "background-color: skyblue; ");
+        document.getElementById("intro").appendChild(tableNode);
+
+        var fields = Object.keys(data[0]);
+        var rowNode = document.createElement("tr");
+
+        for (f in fields) {
+          var headingNode = document.createElement("th");
+          var fieldNode = document.createTextNode(fields[f]);
+          headingNode.appendChild(fieldNode);
+          rowNode.appendChild(headingNode);
+          document.getElementById("myTable").appendChild(rowNode);
+        }
+
+        for (i in data) {
+          var rowNode = document.createElement("tr");
+          var line = data[i];
+          Object.keys(line).map(e => {
+            var dataNode = document.createElement("td");
+            var valueNode = document.createTextNode(line[e]);
+            dataNode.appendChild(valueNode);
+            rowNode.appendChild(dataNode);
+          });
+          document.getElementById("myTable").appendChild(rowNode);
+        }
+      }
+
+      fromDatatoTable(someData);
+      const th = document.getElementsByTagName("th");
+      const td = document.getElementsByTagName("td");
+
+      console.log(th);
+      //   th.addEventListener("mouseout", mouseOut);
+      for (var i = 0; i < th.length; i++) {
+        th[i].addEventListener("mouseover", function(el) {
+          el.target.style.color = "orange";
+        });
+      }
+      for (var i = 0; i < td.length; i++) {
+        td[i].addEventListener("mouseover", function(el) {
+          el.target.style.color = "orange";
+        });
+      }
+    </script>
+  </body>
+</html>
