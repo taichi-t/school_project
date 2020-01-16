@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 ERROR</title>
+    <link rel="icon" href="/public/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="/public/third_party/bootstrap/dist/css/bootstrap.css"
+    />
+    <link rel="stylesheet" href="/public/stylesheets/index.css" />
+    <script
+      type="text/javascript"
+      src="/public/third_party/jquery/dist/jquery.js"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="/public/third_party/bootstrap/dist/js/bootstrap.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404 : Not Found</h1>
+      <h2>request</h2>
+      <table class="table table-bordered">
+        <tr>
+          <th class="col-md-2">request</th>
+          <td class="col-md-10">
+            <span><%= data.method %></span>
+            <span> </span>
+            <span><%= data.url %></span>
+            <span> </span>
+            <span
+              ><%= (data.protocol || "").toUpperCase() %>/<%= data.version
+              %></span
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

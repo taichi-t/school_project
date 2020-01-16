@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>Write page</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button {
+        width: 100px;
+        height: 50px;
+      }
+
+      input {
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BOOK NOW!!</h1>
+    <form action="/send-note" method="POST">
+      <input type="text" name="author" placeholder="name" />
+      <input type="datetime-local" name="date" />
+      <input type="text" name="Hotel" placeholder="Hotel" />
+      <input type="text" name="staydays" placeholder="staydays" />
+      <button type="submit">Send</button>
+    </form>
+
+    <button><a href="/">Home</a></button>
+    <button><a href="/read">See Resavation</a></button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

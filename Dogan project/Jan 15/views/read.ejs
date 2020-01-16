@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Notes</title>
+ 
+   <style>
+
+       body{
+           background-color: skyblue;
+       }
+   ul{
+       list-style: none;
+       
+   }
+
+  
+
+   ul>li>span{
+       margin-right: 10px;
+       text-align: left;
+   }
+
+ 
+   a{
+       text-decoration: none;
+       color: inherit;
+   }
+
+   button{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+   }
+   </style>
+</head>
+<body>
+
+  
+       
+            <% for(let i=0; i<notes.length; i++) {  %>
+        <ul>
+            <li><span>Hotel-name</span> <%= notes[i].Hotel %> </li>
+            <li><span>Author</span> <%= notes[i].author %> </li>
+            <li><span>Start-date</span> <%= notes[i].date %> </li>
+            <li><span>Stay-days</span> <%= notes[i].staydays %> </li>
+        </ul>
+            <% }  %>
+        
+    
+
+    <button><a href="/">Home</a></button>
+    <button><a href="/write">Book</a></button>
+    
+</body>
+</html>
