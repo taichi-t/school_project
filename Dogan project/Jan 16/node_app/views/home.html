@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='main.css'>
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Welcome to my page!</h1>
+    <h3>Tell me what you think about it!</h3>
+
+    <form action='/send-note' method='POST'>
+        <input type='text' name='author'>
+        <input type='text' name='note'>
+        <button type='submit'>Send</button>
+    </form>
+
+    <script src='script.js'></script>
+</body>
+</html>
