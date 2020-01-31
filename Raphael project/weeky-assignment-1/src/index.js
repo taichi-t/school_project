@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { SnackbarProvider } from "notistack";
 
 export const theme = createMuiTheme({
   palette: {
@@ -23,9 +24,17 @@ export const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>,
+  <SnackbarProvider
+    maxSnack={1}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "left"
+    }}
+  >
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </SnackbarProvider>,
 
   document.getElementById("root")
 );
