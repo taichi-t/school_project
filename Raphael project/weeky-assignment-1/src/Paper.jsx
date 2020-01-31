@@ -1,9 +1,26 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
+import Text from "./Text";
+import styled from "styled-components";
 
-export default class Paper extends Component {
+const TextsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: left;
+`;
+
+export default class Paper extends PureComponent {
   render() {
-    const { text } = this.props;
+    const { texts } = this.props;
 
-    return <div></div>;
+    return (
+      <TextsContainer>
+        {texts.map((text, index) => (
+          <Text text={text} key={index} />
+        ))}
+      </TextsContainer>
+    );
   }
 }

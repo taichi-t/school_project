@@ -9,11 +9,13 @@ const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
+
   background-color: #23b5d3;
 `;
 
 const Box = styled.div`
   position: absolute;
+  overflow: scroll;
   width: 500px;
   height: 500px;
   background-color: #f7f7ff;
@@ -24,7 +26,7 @@ const Box = styled.div`
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  text-align: center;
+
   padding: 15px;
 `;
 
@@ -45,22 +47,26 @@ const OutPutField = styled.div`
 `;
 
 export default class App extends Component {
-  state = {
-    text: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      Pretexts: [],
+      texts: []
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleChange = e => {
     this.setState({
-      text: e.target.value
+      Pretexts: [e.target.value]
     });
   };
 
   handleSubmit = e => {
-    const input = document.getElementById("input");
     e.preventDefault();
-    this.setState({
-      text: e.target.value
-    });
+    const input = document.getElementById("input");
+    this.setState({ texts: this.state.texts.concat(this.state.Pretexts) });
     input.value = "";
   };
   render() {
@@ -89,7 +95,7 @@ export default class App extends Component {
             </ButtonContainer>
           </form>
           <OutPutField>
-            <Paper />
+            <Paper texts={this.state.texts} />
           </OutPutField>
         </Box>
       </Container>
