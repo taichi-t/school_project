@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="first-number" />
+    <input type="number" id="second-number" />
+    <button id="button" type="button">submit</button>
+    <div id="output"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#button").on("click", function() {
+          var first = parseInt($("#first-number").val());
+          var second = parseInt($("#second-number").val());
+
+          $(first, second);
+          const array = [first, second];
+          var newArray = [];
+
+          for (var i = 0; i < array.length; i++) {
+            console.log(i);
+            newArray.push(array[i] * 2);
+          }
+          console.log(newArray);
+
+          $("#output").html(`${newArray[0]} , ${newArray[1]}`);
+        });
+      });
+    </script>
+  </body>
+</html>

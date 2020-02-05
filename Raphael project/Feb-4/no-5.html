@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="number" id="first-number" />
+      <input type="number" id="second-number" />
+      <input type="number" id="third-number" />
+      <input type="number" id="fourth-number" />
+      <input type="number" id="fifth-number" />
+
+      <button id="button" type="button">submit</button>
+    </form>
+    <div id="output"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#button").on("click", function() {
+          var first = parseInt($("#first-number").val());
+          var second = parseInt($("#second-number").val());
+          var third = parseInt($("#third-number").val());
+          var fourth = parseInt($("#fourth-number").val());
+          var fifth = parseInt($("#fifth-number").val());
+
+          var averageNumber = (first + second + third + fourth + fifth) / 5;
+          $("#output").html(averageNumber);
+        });
+      });
+    </script>
+  </body>
+</html>
