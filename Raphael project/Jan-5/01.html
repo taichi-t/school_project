@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="first" placeholder="Enter first number" />
+    <input type="number" id="second" placeholder="Enter second number" />
+    <button type="button" id="DivideButton">Divide</button>
+    <button type="button" id="MultiplyButton">Multiply</button>
+
+    <div id="f-output"></div>
+    <div id="c-output"></div>
+
+    <script>
+      divide = () => {
+        const button = document.getElementById("DivideButton");
+        button.addEventListener("click", async () => {
+          const first = await Number(document.getElementById("first").value);
+          const second = await Number(document.getElementById("second").value);
+          var message = first / second;
+          document.getElementById("f-output").innerHTML = message;
+        });
+      };
+
+      multiply = () => {
+        const button = document.getElementById("MultiplyButton");
+        button.addEventListener("click", async () => {
+          const first = await Number(document.getElementById("first").value);
+          const second = await Number(document.getElementById("second").value);
+          var message = first * second;
+          document.getElementById("c-output").innerHTML = message;
+        });
+      };
+      multiply();
+      divide();
+    </script>
+  </body>
+</html>

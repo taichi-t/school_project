@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="c" placeholder="Enter crrent Celsius" />
+    <input type="number" id="f" placeholder="Enter crrent Fahrenheit" />
+    <button type="button" id="button">Calculate</button>
+
+    <div id="f-output"></div>
+    <div id="c-output"></div>
+
+    <script>
+      converter = () => {
+        const button = document.getElementById("button");
+        button.addEventListener("click", async () => {
+          const celsius = document.getElementById("c").value;
+          var cTemp = celsius;
+          var cToFahr = (cTemp * 9) / 5 + 32;
+          var message = cTemp + "\xB0C is " + cToFahr + " \xB0F.";
+          document.getElementById("f-output").innerHTML = await message;
+
+          const fahrenheit = document.getElementById("f").value;
+          var fTemp = fahrenheit;
+          var fToCel = ((fTemp - 32) * 5) / 9;
+          var message = fTemp + "\xB0F is " + fToCel + "\xB0C.";
+          document.getElementById("c-output").innerHTML = await message;
+        });
+      };
+
+      converter();
+    </script>
+  </body>
+</html>

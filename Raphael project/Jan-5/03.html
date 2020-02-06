@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="c" placeholder="Enter a word" />
+
+    <button type="button" id="button">Check</button>
+
+    <div id="output"></div>
+
+    <script>
+      check = () => {
+        const button = document.getElementById("button");
+        button.addEventListener("click", async () => {
+          const string = document.getElementById("c").value;
+          if (string.match(/Java/)) {
+            var message = "your word is contained Java";
+            document.getElementById("output").innerHTML = await message;
+          } else {
+            var message = "your word is not contained Java";
+            document.getElementById("output").innerHTML = await message;
+          }
+        });
+      };
+
+      check();
+    </script>
+  </body>
+</html>
