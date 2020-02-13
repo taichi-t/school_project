@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/tabulator-tables@4.5.3/dist/css/tabulator.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .container {
+      text-align: left;
+      width: 70%;
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="personal">
+        <h3>Personal informations</h3>
+        <br />
+      </div>
+      <div id="address">
+        <h3>Address</h3>
+        <br />
+      </div>
+      <div id="company">
+        <h3>Company</h3>
+        <br />
+      </div>
+    </div>
+
+    <script>
+      getDataFromApi = url => {
+        fetch(url).then(response => {
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code:" + response.status
+            );
+            return;
+          }
+          response
+            .json()
+            .then(function(data) {
+              createTable(data, "personal");
+              createTable(data.address, "address");
+              createTable(data.company, "company");
+            })
+            .catch(function(error) {
+              console.log("this is a error" + " " + error);
+            });
+        });
+      };
+
+      createTable = (data, where) => {
+        const output = document.getElementById(where);
+        for (key in data) {
+          if (key === "address" && "company") {
+            return;
+          }
+          if (key === "geo") {
+            for (key in data.geo) {
+              output.innerHTML += key + ":" + data.geo[key] + "<br>";
+            }
+            return;
+          }
+          output.innerHTML += key + ":" + data[key] + "<br>";
+        }
+      };
+
+      getDataFromApi("https://jsonplaceholder.typicode.com/users/1");
+    </script>
+  </body>
+</html>
