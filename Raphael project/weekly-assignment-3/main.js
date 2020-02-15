@@ -1,9 +1,10 @@
 const button = document.getElementById("button");
-const apiKey = "914549b5ec08cae2817846fcbe5aa963";
 const imagePlace = document.getElementById("imagePlace");
 const earth = document.getElementById("img_earth");
 const countryName = document.getElementById("country_name");
 const tempreture = document.getElementById("tempreture");
+
+const apiKey = APIKEY;
 
 window.addEventListener("load", () => {
   earth.style.visibility = "hidden";
