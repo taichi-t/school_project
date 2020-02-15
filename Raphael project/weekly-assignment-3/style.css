@@ -1,0 +1,60 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Anton", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #d1f4ff79;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+#tempreture {
+  text-align: center;
+  font-size: 4rem;
+}
+
+#input {
+  width: 200px;
+  height: 30px;
+  font-size: 2.4rem;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+
+#button {
+  font-family: "Anton", sans-serif;
+  border-radius: 4px;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  height: 30px;
+  border: none;
+}
+#output {
+  font-size: 300px;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+#img_earth {
+  visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+#imagePlace {
+  position: absolute;
+  z-index: 99;
+}
