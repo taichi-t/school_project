@@ -31,6 +31,7 @@ getDataFromApi = url => {
       console.log("city is not founded " + response.status);
       return;
     }
+
     if (response.status !== 200) {
       earth.style.visibility = "hidden";
       tempreture.style.color = "white";
