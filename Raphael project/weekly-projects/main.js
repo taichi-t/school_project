@@ -9,10 +9,16 @@ const Data = [];
 window.onload = function() {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1;
-  const currentDates = currentDate.getDate();
+  const currentMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+  const currentDates = ("0" + currentDate.getDate()).slice(-2);
+  const limitDate = new Date();
+  limitDate.setDate(limitDate.getDate() - 8);
+  const limitYear = limitDate.getFullYear();
+  const limitMonth = ("0" + (limitDate.getMonth() + 1)).slice(-2);
+  const limitDates = ("0" + limitDate.getDate()).slice(-2);
 
   inputDate.max = `${currentYear}-${currentMonth}-${currentDates}`;
+  inputDate.min = `${limitYear}-${limitMonth}-${limitDates}`;
   inputDate.defaultValue = `${currentYear}-${currentMonth}-${currentDates}`;
 };
 
@@ -31,39 +37,48 @@ createSelects("to");
 createSelects("chosenCountry");
 createSelects("chosenCountry2");
 
-getDataFromApi = url => {
-  fetch(url).then(response => {
-    if (response.status == 404) {
-      console.log("city is not founded " + response.status);
-      return;
-    }
+const getDataFromApi = url => {
+  return new Promise((resolve, reject) => {
+    fetch(url).then(response => {
+      if (response.status == 404) {
+        console.log("city is not founded " + response.status);
+        reject("failed");
+      }
 
-    if (response.status !== 200) {
-      console.log(
-        "Looks like there was a problem. Status Code:" + response.status
-      );
-      return;
-    }
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code:" + response.status
+        );
+        reject("failed");
+      }
 
-    response
-      .json()
-      .then(data => {
-        return data;
-      })
-      .catch(function(error) {
-        console.log("this is a error" + " " + error);
-      });
+      response
+        .json()
+        .then(data => {
+          resolve(data);
+        })
+        .catch(function(error) {
+          console.log("this is a error" + " " + error);
+        });
+    });
   });
 };
 
 ///////////////////get the converted rates data////////////////
 
-buttonConvert.addEventListener("click", () => {
+buttonConvert.addEventListener("click", async () => {
   const fromCountry = document.getElementById("from").value;
   const toCountry = document.getElementById("to").value;
+  const amount = Number(document.getElementById("amount").value);
+  console.log(amount);
+
   getDataFromApi(
-    `http://apilayer.net/api/live?access_key=${apiKey}&currencies=${fromCountry}&source=USD&format=1`
-  );
+    `https://free.currconv.com/api/v7/convert?apiKey=${apiKey}&q=USD_${fromCountry},USD_${toCountry}`
+  ).then(data => {
+    const toRate = data.results[`USD_${toCountry}`].val;
+    const fromRate = data.results[`USD_${fromCountry}`].val;
+    const convertedResult = (toRate / fromRate) * amount;
+  });
 });
 
 ///////////////////get the most recent exchange rate data////////////////
@@ -71,8 +86,10 @@ buttonConvert.addEventListener("click", () => {
 buttonLatest.addEventListener("click", () => {
   const chosenCountry = document.getElementById("chosenCountry").value;
   getDataFromApi(
-    `http://apilayer.net/api/live?access_key=${apiKey}&currencies=${chosenCountry}&source=USD&format=1`
-  );
+    `https://free.currconv.com/api/v7/convert?apiKey=${apiKey}&q=USD_${chosenCountry}&compact=y`
+  ).then(data => {
+    const latestResult = data[`USD_${chosenCountry}`].val;
+  });
 });
 
 ///////////////////get the historycal rates////////////////
@@ -83,6 +100,8 @@ buttonHistory.addEventListener("click", () => {
 
   console.log(chosenDate, chosenCountry2);
   getDataFromApi(
-    `http://api.currencylayer.com/historical?access_key=${apiKey}&date=${chosenDate}&currencies=${chosenCountry2}`
-  );
+    `https://free.currconv.com/api/v7/convert?apiKey=do-not-use-this-key&q=USD_${chosenCountry2},${chosenCountry2}_USD&compact=ultra&date=${chosenDate}`
+  ).then(data => {
+    const HistoryRate = data[`USD_${chosenCountry2}`][chosenDate];
+  });
 });
