@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="convert">
+      <select id="from"
+        >from</select
+      >
+      <select id="to"
+        >to</select
+      >
+      <input type="number" value="amount"></input>
+      <button id="button_Convert">Convert</button>
+    </div>
+
+    <div class="getLatestCurrExchangeRate">
+      <select id="chosenCountry"
+        >choose Country</select
+      >
+      <button id="button_Latest">Show Result</button>
+    </div>
+
+    <div class="getHistoricalRates">
+      <select id="chosenCountry2"
+        >choose Country</select
+      >
+      <input type="date" id="date" name="trip-start" min="1999-01-01" />
+      <button id="button_History">Show Result</button>
+    </div>
+
+    <script src="./env.js"></script>
+    <script src="./countries.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
