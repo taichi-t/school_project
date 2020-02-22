@@ -5,6 +5,8 @@ const buttonHistory = document.getElementById("button_History");
 const buttonConvert = document.getElementById("button_Convert");
 const inputDate = document.getElementById("date");
 const Data = [];
+const output = document.getElementById("output-text");
+console.log(output);
 
 window.onload = function() {
   const currentDate = new Date();
@@ -77,7 +79,8 @@ buttonConvert.addEventListener("click", async () => {
   ).then(data => {
     const toRate = data.results[`USD_${toCountry}`].val;
     const fromRate = data.results[`USD_${fromCountry}`].val;
-    const convertedResult = (toRate / fromRate) * amount;
+    const convertedResult = Math.round((toRate / fromRate) * amount * 10) / 10;
+    output.innerHTML = `${amount}${fromCountry} = ${convertedResult}${toCountry}`;
   });
 });
 
@@ -89,6 +92,7 @@ buttonLatest.addEventListener("click", () => {
     `https://free.currconv.com/api/v7/convert?apiKey=${apiKey}&q=USD_${chosenCountry}&compact=y`
   ).then(data => {
     const latestResult = data[`USD_${chosenCountry}`].val;
+    output.innerHTML = `${latestResult} ${chosenCountry} = 1 USD`;
   });
 });
 
@@ -102,6 +106,7 @@ buttonHistory.addEventListener("click", () => {
   getDataFromApi(
     `https://free.currconv.com/api/v7/convert?apiKey=do-not-use-this-key&q=USD_${chosenCountry2},${chosenCountry2}_USD&compact=ultra&date=${chosenDate}`
   ).then(data => {
-    const HistoryRate = data[`USD_${chosenCountry2}`][chosenDate];
+    const historyRateResult = data[`USD_${chosenCountry2}`][chosenDate];
+    output.innerHTML = `${historyRateResult} ${chosenCountry2} = 1 USD  </br> at ${chosenDate}`;
   });
 });
