@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-
+    <div class="progress" id="progress" >
+      <div class="indeterminate"></div>
+    </div>
+    <div class="wrapper">
+    
     <div class="convert row">
       <h3>Currency Converter</h2>
       <div class="input-field col s4">
@@ -69,9 +73,11 @@
 
    
 
-        <div class="card-panel teal output">
-          <span class="white-text" id="output-text">
-          </span>
+        <div class="output card-panel teal">
+          
+          
+        <span class="white-text" id="output-text">
+        </span>
         </div>
    
     
@@ -87,6 +93,6 @@
         var instances = M.FormSelect.init(elems, []);
       });
     </script>
-  
+  </div>
   </body>
 </html>

@@ -6,7 +6,7 @@ const buttonConvert = document.getElementById("button_Convert");
 const inputDate = document.getElementById("date");
 const Data = [];
 const output = document.getElementById("output-text");
-console.log(output);
+const progressBar = document.getElementById("progress");
 
 window.onload = function() {
   const currentDate = new Date();
@@ -41,9 +41,11 @@ createSelects("chosenCountry2");
 
 const getDataFromApi = url => {
   return new Promise((resolve, reject) => {
+    progressBar.style.display = "initial";
     fetch(url).then(response => {
       if (response.status == 404) {
         console.log("city is not founded " + response.status);
+        progressBar.style.display = "none";
         reject("failed");
       }
 
@@ -51,15 +53,18 @@ const getDataFromApi = url => {
         console.log(
           "Looks like there was a problem. Status Code:" + response.status
         );
+        progressBar.style.display = "none";
         reject("failed");
       }
 
       response
         .json()
         .then(data => {
+          progressBar.style.display = "none";
           resolve(data);
         })
         .catch(function(error) {
+          progressBar.style.display = "none";
           console.log("this is a error" + " " + error);
         });
     });
