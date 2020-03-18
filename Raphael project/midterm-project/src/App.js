@@ -10,10 +10,9 @@ const apiKey = process.env.REACT_APP_APIKEY;
 class App extends Component {
   state = {
     count: 1,
-    fetchData:
+    fetchData: "",
   };
   componentDidMount() {
-    console.log(apiKey);
     getDataFromApi(
       `http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=${apiKey}`
     );
