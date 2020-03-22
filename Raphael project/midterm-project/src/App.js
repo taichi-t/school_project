@@ -1,6 +1,5 @@
 import React, { createContext, Component } from "react";
 import CildComponent from "./ChildComponent";
-import { getDataFromApi } from "./main";
 
 const Context = createContext();
 export const { Provider, Consumer } = Context;
@@ -9,14 +8,39 @@ const apiKey = process.env.REACT_APP_APIKEY;
 
 class App extends Component {
   state = {
-    count: 1,
     fetchData: "",
   };
   componentDidMount() {
-    getDataFromApi(
+    this.getDataFromApi(
       `http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=${apiKey}`
     );
   }
+  getDataFromApi = (url) => {
+    fetch(url).then((response) => {
+      if (response.status === 404) {
+        console.log("city is not founded " + response.status);
+        return;
+      }
+
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code:" + response.status
+        );
+        return;
+      }
+
+      response
+        .json()
+        .then((data) => {
+          this.setState({
+            fetchData: data,
+          });
+        })
+        .catch(function (error) {
+          console.log("this is a error" + error);
+        });
+    });
+  };
   render() {
     return (
       <Provider
