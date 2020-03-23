@@ -13,7 +13,8 @@ export default function ChildComponent() {
           <>
             <p>{city}</p>
             <p>{currentweather}</p>
-            <p>{feelsLike}</p>
+            <p>{feelsLike}&#08451;</p>
+            {state.isNotFound ? <p>Not Found</p> : null}
           </>
         );
       }}

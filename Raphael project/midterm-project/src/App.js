@@ -1,7 +1,8 @@
 import React, { createContext, Component } from "react";
 import CildComponent from "./ChildComponent";
+import FormComponent from "./FormComponent";
 
-const Context = createContext();
+export const Context = createContext();
 export const { Provider, Consumer } = Context;
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_APIKEY;
@@ -9,16 +10,25 @@ const apiKey = process.env.REACT_APP_APIKEY;
 class App extends Component {
   state = {
     fetchData: "",
+    isNotFound: false,
   };
   componentDidMount() {
     this.getDataFromApi(
       `http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=${apiKey}`
     );
   }
+
+  showWeather = (cityName) => {
+    this.getDataFromApi(
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
+    );
+  };
+
   getDataFromApi = (url) => {
     fetch(url).then((response) => {
       if (response.status === 404) {
         console.log("city is not founded " + response.status);
+        this.setState({ isNotFound: true });
         return;
       }
 
@@ -34,6 +44,7 @@ class App extends Component {
         .then((data) => {
           this.setState({
             fetchData: data,
+            isNotFound: false,
           });
         })
         .catch(function (error) {
@@ -48,7 +59,8 @@ class App extends Component {
           state: this.state,
         }}
       >
-        <CildComponent />
+        <CildComponent isNotFound={this.state.isNotFound} />
+        <FormComponent showWeather={this.showWeather} />
       </Provider>
     );
   }
