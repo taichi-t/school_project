@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import MemeComponent from "./MemeComponent";
-import EditComponent from "./EditComponent";
 
 const MEME_END_POINT = "https://api.imgflip.com/get_memes";
 
