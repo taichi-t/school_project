@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "./App";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 export default class FormComponent extends Component {
   state = {
@@ -22,13 +23,21 @@ export default class FormComponent extends Component {
         {({ state, actions }) => {
           return (
             <>
-              <form noValidate autoComplete="off">
-                <TextField
-                  label="Enter your country"
-                  onChange={this.handleChange}
-                />
-                <button onClick={this.handleClick}>Show result</button>
-              </form>
+              <div style={{ paddingTop: "20px" }}>
+                <form noValidate autoComplete="off">
+                  <TextField
+                    label="Enter your country"
+                    onChange={this.handleChange}
+                  />
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.handleClick}
+                  >
+                    Show result
+                  </Button>
+                </form>
+              </div>
             </>
           );
         }}

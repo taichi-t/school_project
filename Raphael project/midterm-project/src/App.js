@@ -59,8 +59,10 @@ class App extends Component {
           state: this.state,
         }}
       >
-        <CildComponent isNotFound={this.state.isNotFound} />
-        <FormComponent showWeather={this.showWeather} />
+        <div style={{ width: "30%", margin: "0 auto" }}>
+          <CildComponent isNotFound={this.state.isNotFound} />
+          <FormComponent showWeather={this.showWeather} />
+        </div>
       </Provider>
     );
   }

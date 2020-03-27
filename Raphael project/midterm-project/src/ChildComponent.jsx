@@ -16,24 +16,22 @@ export default function ChildComponent() {
         const feelsLike = state.fetchData && state.fetchData.main["feels_like"];
         return (
           <>
-            <div style={{ width: "30%", margin: "0 auto" }}>
-              <Card>
-                <CardContent>
-                  <Typography color="textSecondary" gutterBottom>
-                    {city}
-                  </Typography>
-                  <Typography variant="h5" component="h2">
-                    {currentweather}
-                  </Typography>
-                  <Typography color="textSecondary">
-                    {feelsLike}&#08451;
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {state.isNotFound ? <p>Not Found</p> : null}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardContent>
+                <Typography color="textSecondary" gutterBottom>
+                  {city}
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {currentweather}
+                </Typography>
+                <Typography color="textSecondary">
+                  {feelsLike}&#08451;
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {state.isNotFound ? <p>Not Found</p> : null}
+                </Typography>
+              </CardContent>
+            </Card>
           </>
         );
       }}
