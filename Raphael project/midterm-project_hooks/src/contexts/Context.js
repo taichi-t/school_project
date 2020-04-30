@@ -15,15 +15,22 @@ export const ContextProvier = (props) => {
     );
   }, []);
 
+  const showResult = (cityName) => {
+    fetchData(
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
+    );
+  };
+
   const fetchData = (url) => {
     fetch(url).then((response) => {
       if (response.status === 404) {
+        setCondition(true);
         console.log("city is not founded " + response.status);
-        setCondition({ isNotFound: true });
         return;
       }
 
       if (response.status !== 200) {
+        setCondition(true);
         console.log(
           "Looks like there was a problem. Status Code:" + response.status
         );
@@ -34,6 +41,7 @@ export const ContextProvier = (props) => {
         .json()
         .then((fetchData) => {
           setData(fetchData);
+          setCondition(false);
         })
         .catch((error) => {
           console.log("this is a error" + error);
@@ -42,7 +50,7 @@ export const ContextProvier = (props) => {
   };
 
   return (
-    <Context.Provider value={{ data, isNotFound }}>
+    <Context.Provider value={{ data, isNotFound, showResult: showResult }}>
       {props.children}
     </Context.Provider>
   );

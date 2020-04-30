@@ -7,11 +7,12 @@ import Typography from "@material-ui/core/Typography";
 
 export const Dashbord = () => {
   const { data } = useContext(Context);
+  const { isNotFound } = useContext(Context);
 
   const city = data && data.name;
   const currentweather = data && data.weather[0].main;
   const feelsLike = data && data.main["feels_like"];
-  console.log(data && data.name);
+
   return (
     <Card>
       <CardContent>
@@ -22,9 +23,9 @@ export const Dashbord = () => {
           {currentweather}
         </Typography>
         <Typography color="textSecondary">{feelsLike}&#08451;</Typography>
-        {/* <Typography variant="body2" component="p">
-          {state.isNotFound ? <p>Not Found</p> : null}
-        </Typography> */}
+        <Typography variant="body2" component="p">
+          {isNotFound ? "Not Found" : null}
+        </Typography>
       </CardContent>
     </Card>
   );
