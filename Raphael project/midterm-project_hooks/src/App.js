@@ -6,8 +6,10 @@ import { FormComponent } from "./components/FormComponent";
 function App() {
   return (
     <ContextProvier>
-      <Dashbord />
-      <FormComponent />
+      <div style={{ width: "30%", margin: "0 auto" }}>
+        <Dashbord />
+        <FormComponent />
+      </div>
     </ContextProvier>
   );
 }
