@@ -3,17 +3,31 @@ import { v4 as uuidv4 } from "uuid";
 export const bookReducer = (state, action) => {
   switch (action.type) {
     case "ADD_BOOK":
-      return [
+      return {
         ...state,
-        {
+        books: state.books.concat({
           title: action.book.title,
           author: action.book.author,
           id: uuidv4(),
-        },
-      ];
+        }),
+      };
 
     case "REMOVE_BOOK":
-      return state.filter((book) => book.id !== action.id);
+      return {
+        ...state,
+        books: state.books.filter((book) => book.id !== action.id),
+      };
+
+    case "ADD_HISTORY":
+      return {
+        ...state,
+        books: state.books.filter((book) => book.id !== action.id),
+        history: state.history.concat({
+          title: action.title,
+          author: action.author,
+          id: action.id,
+        }),
+      };
 
     default:
       return state;

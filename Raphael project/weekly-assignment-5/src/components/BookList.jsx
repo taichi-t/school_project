@@ -3,11 +3,11 @@ import { BookContext } from "../contexts/BookContext";
 import BookDetails from "./BookDetails";
 
 export const BookList = () => {
-  const { books } = useContext(BookContext);
-  return books.length ? (
+  const { state } = useContext(BookContext);
+  return state.books.length ? (
     <div className="book-list">
       <ul>
-        {books.map((book) => {
+        {state.books.map((book) => {
           return <BookDetails book={book} key={book.id} />;
         })}
       </ul>
