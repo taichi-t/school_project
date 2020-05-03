@@ -1,17 +1,19 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import BookContextProivider from "./contexts/BookContext";
-import Navbar from "./components/Navbar";
-import { BookList } from "./components/BookList";
-import { Bookform } from "./components/Bookform";
+
+import Home from "./Home";
+import History from "./components/History";
 
 function App() {
   return (
     <div className="App">
-      <BookContextProivider>
-        <Navbar />
-        <BookList />
-        <Bookform />
-      </BookContextProivider>
+      <BrowserRouter>
+        <BookContextProivider>
+          <Route path="/" component={Home} exact />
+          <Route path="/finished-bookList" component={History} exact />
+        </BookContextProivider>
+      </BrowserRouter>
     </div>
   );
 }
