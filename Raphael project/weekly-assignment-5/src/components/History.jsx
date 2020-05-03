@@ -10,7 +10,7 @@ export const History = () => {
     ) : (
       <ul>
         {state.history.map((item) => (
-          <li>
+          <li key={item.id}>
             title:{item.title}, author:{item.author}, finished at{" "}
             {item.finishedAt}
           </li>
