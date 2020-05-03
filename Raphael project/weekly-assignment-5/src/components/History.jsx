@@ -11,7 +11,8 @@ export const History = () => {
       <ul>
         {state.history.map((item) => (
           <li>
-            title:{item.title}, author:{item.author}
+            title:{item.title}, author:{item.author}, finished at{" "}
+            {item.finishedAt}
           </li>
         ))}
       </ul>

@@ -1,14 +1,17 @@
 import { v4 as uuidv4 } from "uuid";
+const moment = require("moment");
 
 export const bookReducer = (state, action) => {
   switch (action.type) {
     case "ADD_BOOK":
+      const createdAt = moment().calendar();
       return {
         ...state,
         books: state.books.concat({
           title: action.book.title,
           author: action.book.author,
           id: uuidv4(),
+          createdAt,
         }),
       };
 
@@ -19,6 +22,8 @@ export const bookReducer = (state, action) => {
       };
 
     case "ADD_HISTORY":
+      const finishedAt = moment().calendar();
+
       return {
         ...state,
         books: state.books.filter((book) => book.id !== action.id),
@@ -26,6 +31,7 @@ export const bookReducer = (state, action) => {
           title: action.title,
           author: action.author,
           id: action.id,
+          finishedAt,
         }),
       };
 
