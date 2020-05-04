@@ -5,21 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #553055;
+  background-color: #e1e2e1;
 }
 
 .App {
-  background-color: #4c2a4c;
+  background-color: #cccccc;
   margin: 20px auto;
   width: 90%;
   max-width: 700px;
-  color: #eee;
+  color: #ffffff;
 }
 
 .navbar {
+  border-radius: 4px 4px 0 0;
   padding: 10px 20px;
   text-align: center;
-  background-color: #6d3d6d;
+  background-color: #3f51b5;
 }
 
 .navbar h1 {
@@ -36,10 +37,9 @@ body {
 }
 
 .book-list li {
-  background-color: #6d3d6d;
+  background-color: #757de8;
   border-radius: 4px;
   padding: 10px;
-
   margin: 10px 0;
 }
 
@@ -61,16 +61,6 @@ body {
 
 form {
   padding: 20px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  margin: 6px 0;
-  background-color: #3c1f3c;
-  color: #fff;
-  border: 0;
 }
 
 input[type="submit"] {
