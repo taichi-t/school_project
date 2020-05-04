@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { BookContext } from "../contexts/BookContext";
 import { Link } from "react-router-dom";
 
+//style
+import Button from "@material-ui/core/Button";
+
 export const BookDetails = ({ book }) => {
   const { dispatch } = useContext(BookContext);
 
@@ -19,20 +22,24 @@ export const BookDetails = ({ book }) => {
     <li>
       <div className="title">{book && book.title}</div>
       <div className="author">{book && book.author}</div>
-      <Link to={book.id}>
-        <input
-          type="button"
-          value="DETAIL"
-          onClick={() => dispatch({ type: "DETAIL_BOOK", id: book.id })}
-        />
-      </Link>
-      <input type="button" value="DONE" onClick={handleClick} />
-      <input
-        type="button"
-        value="REMOVE"
+
+      <Button
+        color="primary"
+        onClick={() => dispatch({ type: "DETAIL_BOOK", id: book.id })}
+      >
+        <Link to={book.id}> Detail</Link>
+      </Button>
+
+      <Button onClick={handleClick} color="primary">
+        Done
+      </Button>
+
+      <Button
         onClick={() => dispatch({ type: "REMOVE_BOOK", id: book.id })}
-        className="remove_button"
-      />
+        color="secondary"
+      >
+        Remove
+      </Button>
     </li>
   );
 };

@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { BookContext } from "../contexts/BookContext";
 import { Link } from "react-router-dom";
 
+//style
+import Button from "@material-ui/core/Button";
+
 const Navbar = () => {
   const { state } = useContext(BookContext);
 
@@ -9,9 +12,10 @@ const Navbar = () => {
     <div className="navbar">
       <h1>Reading List</h1>
       <p>currently you have {state.books.length} books to get through...</p>
-      <Link to="/finished-booklist">
-        <input type="button" value="book history" />
-      </Link>
+
+      <Button variant="book history" color="primary">
+        <Link to="/finished-booklist">History</Link>
+      </Button>
     </div>
   );
 };
