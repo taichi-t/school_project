@@ -16,19 +16,24 @@ export const BookDetails = ({ book }) => {
   };
 
   return (
-    <Link to={book.id}>
-      <li onClick={() => dispatch({ type: "DETAIL_BOOK", id: book.id })}>
-        <div className="title">{book && book.title}</div>
-        <div className="author">{book && book.author}</div>
+    <li>
+      <div className="title">{book && book.title}</div>
+      <div className="author">{book && book.author}</div>
+      <Link to={book.id}>
         <input
           type="button"
-          value="remove"
-          onClick={() => dispatch({ type: "REMOVE_BOOK", id: book.id })}
+          value="DETAIL"
+          onClick={() => dispatch({ type: "DETAIL_BOOK", id: book.id })}
         />
-
-        <input type="button" value="finish" onClick={handleClick} />
-      </li>
-    </Link>
+      </Link>
+      <input type="button" value="DONE" onClick={handleClick} />
+      <input
+        type="button"
+        value="REMOVE"
+        onClick={() => dispatch({ type: "REMOVE_BOOK", id: book.id })}
+        className="remove_button"
+      />
+    </li>
   );
 };
 

@@ -39,12 +39,8 @@ body {
   background-color: #6d3d6d;
   border-radius: 4px;
   padding: 10px;
-  cursor: pointer;
-  margin: 10px 0;
-}
 
-.book-list li:hover {
-  opacity: 0.7;
+  margin: 10px 0;
 }
 
 .book-list .title {
@@ -83,4 +79,11 @@ input[type="submit"] {
   border: 0;
   padding: 6px 20px;
   display: block;
+}
+input[type="button"] {
+  cursor: pointer;
+}
+
+.remove_button {
+  color: red;
 }
